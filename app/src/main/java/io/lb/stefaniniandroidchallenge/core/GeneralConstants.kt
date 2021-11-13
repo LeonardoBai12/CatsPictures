@@ -7,4 +7,5 @@ object GeneralConstants {
     const val DATABASE = "STEFANINI_DB"
     const val TOKEN = "Bearer a4bb631b00426a80d631a250ec33853cae25c917"
     const val URL = "."
+    const val SPAN_COUNT = 4
 }
