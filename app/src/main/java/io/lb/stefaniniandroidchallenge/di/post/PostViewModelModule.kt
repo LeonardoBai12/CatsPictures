@@ -5,7 +5,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import io.lb.stefaniniandroidchallenge.di.ViewModelKey
-import io.lb.stefaniniandroidchallenge.ui.main.PostViewModel
+import io.lb.stefaniniandroidchallenge.ui.post.PostViewModel
 
 @Module
 abstract class PostViewModelModule {

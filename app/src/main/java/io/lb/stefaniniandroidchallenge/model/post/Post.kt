@@ -12,12 +12,6 @@ data class Post(
     @PrimaryKey
     @ColumnInfo(name = PostConstants.ID)
     val id: String,
-    @ColumnInfo(name = PostConstants.TITLE)
-    val title: String?,
-    @ColumnInfo(name = PostConstants.VIEWS)
-    val views: Int?,
-    @ColumnInfo(name = PostConstants.DESCRIPTION)
-    val description: String?,
     @ColumnInfo(name = PostConstants.PICTURES)
     @field:SerializedName(PostConstants.PICTURES)
     val pictures: ArrayList<Picture?>?

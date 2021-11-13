@@ -1,5 +1,6 @@
-package io.lb.stefaniniandroidchallenge.ui.main
+package io.lb.stefaniniandroidchallenge.ui.post
 
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import io.lb.stefaniniandroidchallenge.R
 import io.lb.stefaniniandroidchallenge.model.picture.Picture
+import io.lb.stefaniniandroidchallenge.ui.picture.PictureDialog
 import kotlinx.android.synthetic.main.row_picture.view.*
 
-class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class PostAdapter(
+    private val activity: Activity
+) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     private var pictures: ArrayList<Picture>? = null
 
     override fun onCreateViewHolder(
@@ -24,10 +28,22 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val picture = pictures?.get(position)
+        Glide.with(holder.ivPostPicture).load(picture?.url).into(holder.ivPostPicture)
 
-        Glide.with(holder.ivPostPicutre)
-            .load(picture?.url)
-            .into(holder.ivPostPicutre)
+        onClickListener(holder, picture)
+    }
+
+    private fun onClickListener(
+        holder: ViewHolder,
+        picture: Picture?
+    ) {
+        holder.itemView.setOnClickListener {
+            if (picture == null) {
+                return@setOnClickListener
+            }
+            val dialog = PictureDialog(activity, picture)
+            dialog.show()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -39,6 +55,6 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     }
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val ivPostPicutre: ImageView = view.ivPostPicutre
+        val ivPostPicture: ImageView = view.ivPostPicutre
     }
 }

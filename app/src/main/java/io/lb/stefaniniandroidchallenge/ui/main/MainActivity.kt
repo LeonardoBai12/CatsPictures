@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.support.DaggerAppCompatActivity
 import io.lb.stefaniniandroidchallenge.R
 import io.lb.stefaniniandroidchallenge.model.picture.Picture
+import io.lb.stefaniniandroidchallenge.ui.post.PostAdapter
+import io.lb.stefaniniandroidchallenge.ui.post.PostViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -38,7 +40,7 @@ class MainActivity: DaggerAppCompatActivity() {
         }
 
         rvPostPictures.layoutManager = LinearLayoutManager(this)
-        adapter = PostAdapter()
+        adapter = PostAdapter(this)
         rvPostPictures.adapter = adapter
     }
 
@@ -69,7 +71,9 @@ class MainActivity: DaggerAppCompatActivity() {
     }
 
     private fun disableShimmer() {
-        shimmerPostPictures.visibility = View.GONE
-        shimmerPostPictures.stopShimmer()
+        runOnUiThread {
+            shimmerPostPictures.visibility = View.GONE
+            shimmerPostPictures.stopShimmer()
+        }
     }
 }

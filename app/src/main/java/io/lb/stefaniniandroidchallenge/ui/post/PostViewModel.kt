@@ -1,4 +1,4 @@
-package io.lb.stefaniniandroidchallenge.ui.main
+package io.lb.stefaniniandroidchallenge.ui.post
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,13 +8,10 @@ import io.lb.stefaniniandroidchallenge.model.picture.Picture
 import io.lb.stefaniniandroidchallenge.model.post.Post
 import io.lb.stefaniniandroidchallenge.network.PostRepository
 import javax.inject.Inject
-import javax.security.auth.callback.Callback
 
 class PostViewModel @Inject constructor(
     private val repository: PostRepository
 ): ViewModel() {
-    private val pictures = MutableLiveData<ArrayList<Picture>>()
-
     fun loadPosts(): LiveData<List<Post>> {
         return repository.getAllRecords()
     }

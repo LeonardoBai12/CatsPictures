@@ -7,4 +7,5 @@
 
     <include layout="@layout/shimmer_place_holder" />
     <include layout="@layout/shimmer_place_holder" />
+    <include layout="@layout/shimmer_place_holder" />
 </LinearLayout>
