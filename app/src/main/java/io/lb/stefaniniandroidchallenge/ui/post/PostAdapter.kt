@@ -28,8 +28,8 @@ class PostAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val picture = pictures?.get(position)
-        Glide.with(holder.ivPostPicture).load(picture?.url).into(holder.ivPostPicture)
 
+        Glide.with(holder.ivPostPicture).load(picture?.url).into(holder.ivPostPicture)
         onClickListener(holder, picture)
     }
 

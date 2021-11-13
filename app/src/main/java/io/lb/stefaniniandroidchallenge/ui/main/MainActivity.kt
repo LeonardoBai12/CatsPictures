@@ -6,9 +6,11 @@ import android.os.Looper
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.android.support.DaggerAppCompatActivity
 import io.lb.stefaniniandroidchallenge.R
+import io.lb.stefaniniandroidchallenge.core.GeneralConstants
 import io.lb.stefaniniandroidchallenge.model.picture.Picture
 import io.lb.stefaniniandroidchallenge.ui.post.PostAdapter
 import io.lb.stefaniniandroidchallenge.ui.post.PostViewModel
@@ -39,8 +41,8 @@ class MainActivity: DaggerAppCompatActivity() {
             shimmerPostPictures.startShimmer()
         }
 
-        rvPostPictures.layoutManager = LinearLayoutManager(this)
         adapter = PostAdapter(this)
+        rvPostPictures.layoutManager = GridLayoutManager(this, GeneralConstants.SPAN_COUNT)
         rvPostPictures.adapter = adapter
     }
 
