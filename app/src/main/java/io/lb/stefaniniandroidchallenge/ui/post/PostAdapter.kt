@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import io.lb.stefaniniandroidchallenge.R
 import io.lb.stefaniniandroidchallenge.model.picture.Picture
 import io.lb.stefaniniandroidchallenge.ui.picture.PictureDialog
@@ -29,7 +31,13 @@ class PostAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val picture = pictures?.get(position)
 
-        Glide.with(holder.ivPostPicture).load(picture?.url).into(holder.ivPostPicture)
+        val requestOptions = RequestOptions.fitCenterTransform()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .override(holder.ivPostPicture.width,holder.ivPostPicture.height)
+
+        Glide.with(holder.ivPostPicture).load(picture?.url)
+            .apply(requestOptions).into(holder.ivPostPicture)
+
         onClickListener(holder, picture)
     }
 
