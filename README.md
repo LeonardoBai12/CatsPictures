@@ -1,4 +1,4 @@
-# Android Seed
+# Stefanini Android Challenge
  
 ## Introduction
 
