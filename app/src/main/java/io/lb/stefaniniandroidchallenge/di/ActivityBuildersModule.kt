@@ -5,7 +5,6 @@ import dagger.android.ContributesAndroidInjector
 import io.lb.stefaniniandroidchallenge.di.post.PostModule
 import io.lb.stefaniniandroidchallenge.di.post.PostViewModelModule
 import io.lb.stefaniniandroidchallenge.ui.main.MainActivity
-import io.lb.stefaniniandroidchallenge.ui.main.PostViewModel
 
 @Module
 abstract class ActivityBuildersModule {

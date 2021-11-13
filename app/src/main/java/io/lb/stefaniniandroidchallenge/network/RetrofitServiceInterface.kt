@@ -8,9 +8,9 @@ import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface RetrofitServiceInterface {
-    @GET(GeneralConstants.CATS)
+    @GET(GeneralConstants.URL)
     fun getDataFromApi(
         @Header("Authorization") token: String,
-        @Query("id") id: String
+        @Query("q") query: String
     ): Call<PostEnvelope>
 }

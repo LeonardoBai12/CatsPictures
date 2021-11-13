@@ -12,9 +12,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
-import javax.inject.Inject
 
-class PostRepository @Inject constructor(
+class PostRepository (
     private val retrofitServiceInterface: RetrofitServiceInterface,
     private val appDao: AppDao
 ){
@@ -30,9 +29,9 @@ class PostRepository @Inject constructor(
         appDao.deleteAllRecords()
     }
 
-    fun makeApiCall(query: String) {
+    fun makeApiCall(query: String, callback: () -> Unit) {
         val call = retrofitServiceInterface.getDataFromApi(
-            GeneralConstants.BEARER,
+            GeneralConstants.TOKEN,
             query
         )
         call.enqueue(object : Callback<PostEnvelope>{
@@ -46,12 +45,13 @@ class PostRepository @Inject constructor(
                         response.body()?.data?.forEach {
                             insertRecords(it)
                         }
+                        callback()
                     }
                 }
             }
 
             override fun onFailure(call: Call<PostEnvelope>, t: Throwable) {
-                Timber.e(call.toString())
+                Timber.e(t.toString())
             }
         })
     }

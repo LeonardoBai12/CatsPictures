@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.lb.stefaniniandroidchallenge">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".core.StefaniniApplication"
         android:allowBackup="true"

@@ -6,11 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import io.lb.stefaniniandroidchallenge.core.GeneralConstants
-import io.lb.stefaniniandroidchallenge.model.picture.TypeConverterPictureList
 import io.lb.stefaniniandroidchallenge.model.post.Post
 
 @Database(entities = [Post::class], version = 1, exportSchema = false)
-@TypeConverters(TypeConverterPictureList::class)
+@TypeConverters(StefaniniConverters::class)
 abstract class AppDataBase: RoomDatabase() {
     abstract fun getAppDao(): AppDao
 

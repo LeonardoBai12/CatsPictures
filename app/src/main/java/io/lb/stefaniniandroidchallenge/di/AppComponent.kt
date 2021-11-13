@@ -18,12 +18,10 @@ import javax.inject.Singleton
     ]
 )
 interface AppComponent : AndroidInjector<DaggerApplication> {
-
     @Component.Builder
     interface Builder{
         @BindsInstance
         fun application(application: Application): Builder
         fun build(): AppComponent
     }
-
 }
