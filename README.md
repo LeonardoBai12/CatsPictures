@@ -1,8 +1,8 @@
-# Stefanini Android Challenge
+# Cats Pictures
  
 ## Introduction
 
-This folder contains a Android project developed by the developer Leonardo Biondo Bai, as a challenge to present to the Stefanini Group's Android team.
+This folder contains a Android project developed by the developer Leonardo Biondo Bai.
 
 ## Project notes
 
